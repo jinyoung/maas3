@@ -6,14 +6,7 @@ spring:
 ---
 
 spring:
-  config:
-    activate:
-      on-profile: default
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:9090/realms/master/protocol/openid-connect/certs
+  profiles: default
   jpa:
     properties:
       hibernate:
@@ -53,19 +46,7 @@ server:
 ---
 
 spring:
-  config:
-    activate:
-      on-profile: docker
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:9090/realms/master/protocol/openid-connect/certs
-  jpa:
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
+  profiles: docker
   cloud:
     stream:
       kafka:
